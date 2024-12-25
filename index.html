@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal Sholat</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon/favicon-16x16.png" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/public/favicon/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/android-chrome-512x512.png">
+    <link rel="manifest" href="manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(function(registration) {
+                    console.log('Service Worker registered with scope:', registration.scope);
+                }).catch(function(error) {
+                    console.log('Service Worker registration failed:', error);
+                });
+        }
+    </script>
+</head>
+
+<body>
+    <div class="loading">
+        <div class="loading-text">Memuat...</div>
+    </div>
+    <header>
+        <h1>Jadwal Sholat</h1>
+    </header>
+    <main>
+        <div class="search-container">
+            <input type="text" id="city-input" placeholder="Masukkan nama kota">
+            <button id="search-button">Cari</button>
+        </div>
+        <div id="schedule-container"></div>
+    </main>
+    <footer>
+        <p>&copy; <span id="current-year"></span> <a href="https://instagram.com/h.arrhmn" target="_blank">h.arrhmn</a>. All rights reserved.</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+
+</html>
