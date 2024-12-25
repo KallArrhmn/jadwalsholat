@@ -40,8 +40,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function fetchPrayerSchedule(lat, lon) {
-        fetch(`http://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lon}&method=2`)
-            .then(response => response.json())
+        fetch(`https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lon}&method=2`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
             .then(data => {
                 displaySchedule(data.data.timings);
                 loading.style.display = 'none';
